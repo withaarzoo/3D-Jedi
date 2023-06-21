@@ -1,0 +1,2171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-image: radial-gradient(#bd8b56, #6a4a29);
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+body .scene,
+body .scene * {
+    transform-style: preserve-3d;
+}
+
+body .scene {
+    position: relative;
+    width: 70vmin;
+    height: 20vmin;
+    transform: rotateX(-20deg) rotateY(70deg) scale3d(1, 1, 1);
+    animation: rot 20s ease-in-out 0s infinite alternate;
+}
+
+@keyframes rot {
+    to {
+        transform: rotateX(0deg) rotateY(440deg) scale3d(1, 1, 1);
+    }
+}
+
+body .scene::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -100;
+    transform: rotateX(90deg) scale(1);
+}
+
+body .scene .cube,
+body .scene .cube * {
+    position: absolute;
+    bottom: 0;
+}
+
+body .scene #ground {
+    z-index: -50;
+    width: 70vmin;
+    height: 3vmin;
+}
+
+body .scene #ground .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene #ground .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene #ground .container .left {
+    width: 70vmin;
+    height: 3vmin;
+    background-color: #BC7D3D;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-35vmin);
+}
+
+body .scene #ground .container .right {
+    width: 70vmin;
+    height: 3vmin;
+    background-color: #BC7D3D;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-35vmin) translateZ(70vmin);
+}
+
+body .scene #ground .container .top {
+    background-color: #c58a4d;
+    width: 70vmin;
+    height: 70vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(35vmin) translateZ(3vmin);
+}
+
+body .scene #ground .container .bottom {
+    background-color: #c58a4d;
+    width: 70vmin;
+    height: 70vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(35vmin);
+}
+
+body .scene #ground .container .front {
+    background-color: #9d6933;
+    width: 70vmin;
+    height: 3vmin;
+    transform-origin: bottom left;
+    transform: translateZ(35vmin);
+}
+
+body .scene #ground .container .back {
+    background-color: #9d6933;
+    width: 70vmin;
+    height: 3vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(35vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene #ground .container .left,
+body .scene #ground .container .right,
+body .scene #ground .container .front,
+body .scene #ground .container .back {
+    background-image: linear-gradient(180deg, #0000 0% 20%, #AD6B2B 20% 45%, #0000 45% 100%);
+}
+
+body .scene #ground .container .bottom {
+    background-color: #E1B366;
+    filter: drop-shadow(0 0 3.75rem black);
+}
+
+body .scene #ground .container .top {
+    box-shadow: inset 0 0 15vmin #000a;
+    background-image: radial-gradient(#0008, #0000 15vmin), repeating-linear-gradient(180deg, #0000 0% 50%, #0001 50% 100%), repeating-linear-gradient(90deg, #0000 0% 50%, #0001 50% 100%);
+    background-size: 100%, 4em 4em, 4em 4em;
+}
+
+body .scene .rocks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    transform: translateY(-3vmin);
+}
+
+body .scene .rocks #rock-1 {
+    width: 6vmin;
+    height: 5vmin;
+    transform: translate3d(5vmin, 2vmin, 25vmin) rotateX(15deg) rotateY(15deg);
+}
+
+body .scene .rocks #rock-1 .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .rocks #rock-1 .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .rocks #rock-1 .container .left {
+    width: 5vmin;
+    height: 5vmin;
+    background-color: #3D3D3D;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-2.5vmin);
+}
+
+body .scene .rocks #rock-1 .container .right {
+    width: 5vmin;
+    height: 5vmin;
+    background-color: #3D3D3D;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-2.5vmin) translateZ(6vmin);
+}
+
+body .scene .rocks #rock-1 .container .top {
+    background-color: #4a4a4a;
+    width: 6vmin;
+    height: 5vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(2.5vmin) translateZ(5vmin);
+}
+
+body .scene .rocks #rock-1 .container .bottom {
+    background-color: #4a4a4a;
+    width: 6vmin;
+    height: 5vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(2.5vmin);
+}
+
+body .scene .rocks #rock-1 .container .front {
+    background-color: #292929;
+    width: 6vmin;
+    height: 5vmin;
+    transform-origin: bottom left;
+    transform: translateZ(2.5vmin);
+}
+
+body .scene .rocks #rock-1 .container .back {
+    background-color: #292929;
+    width: 6vmin;
+    height: 5vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(2.5vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .rocks #rock-2 {
+    width: 8vmin;
+    height: 4vmin;
+    transform: translate3d(15vmin, 1.5vmin, -25vmin) rotateX(-15deg) rotateY(20deg);
+}
+
+body .scene .rocks #rock-2 .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .rocks #rock-2 .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .rocks #rock-2 .container .left {
+    width: 8vmin;
+    height: 4vmin;
+    background-color: #3D3D3D;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-4vmin);
+}
+
+body .scene .rocks #rock-2 .container .right {
+    width: 8vmin;
+    height: 4vmin;
+    background-color: #3D3D3D;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-4vmin) translateZ(8vmin);
+}
+
+body .scene .rocks #rock-2 .container .top {
+    background-color: #4a4a4a;
+    width: 8vmin;
+    height: 8vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(4vmin) translateZ(4vmin);
+}
+
+body .scene .rocks #rock-2 .container .bottom {
+    background-color: #4a4a4a;
+    width: 8vmin;
+    height: 8vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(4vmin);
+}
+
+body .scene .rocks #rock-2 .container .front {
+    background-color: #292929;
+    width: 8vmin;
+    height: 4vmin;
+    transform-origin: bottom left;
+    transform: translateZ(4vmin);
+}
+
+body .scene .rocks #rock-2 .container .back {
+    background-color: #292929;
+    width: 8vmin;
+    height: 4vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(4vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .rocks #rock-3 {
+    width: 9vmin;
+    height: 4vmin;
+    transform: translate3d(15vmin, 2vmin, -25vmin) rotateX(5deg) rotateY(-15deg) rotateZ(3deg);
+}
+
+body .scene .rocks #rock-3 .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .rocks #rock-3 .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .rocks #rock-3 .container .left {
+    width: 8vmin;
+    height: 4vmin;
+    background-color: #3D3D3D;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-4vmin);
+}
+
+body .scene .rocks #rock-3 .container .right {
+    width: 8vmin;
+    height: 4vmin;
+    background-color: #3D3D3D;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-4vmin) translateZ(9vmin);
+}
+
+body .scene .rocks #rock-3 .container .top {
+    background-color: #4a4a4a;
+    width: 9vmin;
+    height: 8vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(4vmin) translateZ(4vmin);
+}
+
+body .scene .rocks #rock-3 .container .bottom {
+    background-color: #4a4a4a;
+    width: 9vmin;
+    height: 8vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(4vmin);
+}
+
+body .scene .rocks #rock-3 .container .front {
+    background-color: #292929;
+    width: 9vmin;
+    height: 4vmin;
+    transform-origin: bottom left;
+    transform: translateZ(4vmin);
+}
+
+body .scene .rocks #rock-3 .container .back {
+    background-color: #292929;
+    width: 9vmin;
+    height: 4vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(4vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .rocks #rock-4 {
+    width: 9vmin;
+    height: 4vmin;
+    transform: translate3d(45vmin, 1.5vmin, 18vmin) rotateX(15deg) rotateY(45deg);
+}
+
+body .scene .rocks #rock-4 .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .rocks #rock-4 .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .rocks #rock-4 .container .left {
+    width: 8vmin;
+    height: 4vmin;
+    background-color: #3D3D3D;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-4vmin);
+}
+
+body .scene .rocks #rock-4 .container .right {
+    width: 8vmin;
+    height: 4vmin;
+    background-color: #3D3D3D;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-4vmin) translateZ(9vmin);
+}
+
+body .scene .rocks #rock-4 .container .top {
+    background-color: #4a4a4a;
+    width: 9vmin;
+    height: 8vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(4vmin) translateZ(4vmin);
+}
+
+body .scene .rocks #rock-4 .container .bottom {
+    background-color: #4a4a4a;
+    width: 9vmin;
+    height: 8vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(4vmin);
+}
+
+body .scene .rocks #rock-4 .container .front {
+    background-color: #292929;
+    width: 9vmin;
+    height: 4vmin;
+    transform-origin: bottom left;
+    transform: translateZ(4vmin);
+}
+
+body .scene .rocks #rock-4 .container .back {
+    background-color: #292929;
+    width: 9vmin;
+    height: 4vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(4vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .rocks #rock-5 {
+    width: 12vmin;
+    height: 4vmin;
+    transform: translate3d(47vmin, 1.5vmin, -22vmin) rotateX(-5deg) rotateY(65deg);
+}
+
+body .scene .rocks #rock-5 .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .rocks #rock-5 .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .rocks #rock-5 .container .left {
+    width: 14vmin;
+    height: 4vmin;
+    background-color: #3D3D3D;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-7vmin);
+}
+
+body .scene .rocks #rock-5 .container .right {
+    width: 14vmin;
+    height: 4vmin;
+    background-color: #3D3D3D;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-7vmin) translateZ(12vmin);
+}
+
+body .scene .rocks #rock-5 .container .top {
+    background-color: #4a4a4a;
+    width: 12vmin;
+    height: 14vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(7vmin) translateZ(4vmin);
+}
+
+body .scene .rocks #rock-5 .container .bottom {
+    background-color: #4a4a4a;
+    width: 12vmin;
+    height: 14vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(7vmin);
+}
+
+body .scene .rocks #rock-5 .container .front {
+    background-color: #292929;
+    width: 12vmin;
+    height: 4vmin;
+    transform-origin: bottom left;
+    transform: translateZ(7vmin);
+}
+
+body .scene .rocks #rock-5 .container .back {
+    background-color: #292929;
+    width: 12vmin;
+    height: 4vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(7vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    transform: translate3d(30vmin, 0, 0);
+}
+
+body .scene .jedi .body,
+body .scene .jedi .head,
+body .scene .jedi .light-saber,
+body .scene .jedi .hair,
+body .scene .jedi .eyes,
+body .scene .jedi .legs,
+body .scene .jedi .leg-left,
+body .scene .jedi .leg-right,
+body .scene .jedi .arms,
+body .scene .jedi .arm-left,
+body .scene .jedi .arm-right,
+body .scene .jedi .elbow-left {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+}
+
+body .scene .jedi .head {
+    width: 10vmin;
+    height: 8vmin;
+    transform: translate3d(0vmin, -23vmin, 0);
+    animation: rotHead 10s ease-in-out infinite alternate;
+}
+
+@keyframes rotHead {
+
+    20%,
+    25% {
+        transform: translate3d(0vmin, -23vmin, 0) rotateY(20deg) rotateZ(5deg);
+    }
+
+    50%,
+    55% {
+        transform: translate3d(0vmin, -23vmin, 0) rotateY(-20deg) rotateZ(-5deg);
+    }
+
+    70%,
+    75% {
+        transform: translate3d(0vmin, -23vmin, 0) rotateY(15deg) rotateZ(5deg);
+    }
+
+    100% {
+        transform: translate3d(0vmin, -23vmin, 0) rotateY(-10deg) rotateZ(5deg);
+    }
+}
+
+body .scene .jedi .head #head {
+    width: 10vmin;
+    height: 7vmin;
+}
+
+body .scene .jedi .head #head .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .head #head .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .head #head .container .left {
+    width: 10vmin;
+    height: 7vmin;
+    background-color: #89565E;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-5vmin);
+}
+
+body .scene .jedi .head #head .container .right {
+    width: 10vmin;
+    height: 7vmin;
+    background-color: #89565E;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-5vmin) translateZ(10vmin);
+}
+
+body .scene .jedi .head #head .container .top {
+    background-color: #996069;
+    width: 10vmin;
+    height: 10vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(5vmin) translateZ(7vmin);
+}
+
+body .scene .jedi .head #head .container .bottom {
+    background-color: #996069;
+    width: 10vmin;
+    height: 10vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(5vmin);
+}
+
+body .scene .jedi .head #head .container .front {
+    background-color: #70464d;
+    width: 10vmin;
+    height: 7vmin;
+    transform-origin: bottom left;
+    transform: translateZ(5vmin);
+}
+
+body .scene .jedi .head #head .container .back {
+    background-color: #70464d;
+    width: 10vmin;
+    height: 7vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(5vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .head #neck {
+    width: 4vmin;
+    height: 2vmin;
+    transform: translate3d(3vmin, 1.5vmin, 0);
+}
+
+body .scene .jedi .head #neck .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .head #neck .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .head #neck .container .left {
+    width: 4vmin;
+    height: 2vmin;
+    background-color: #805058;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-2vmin);
+}
+
+body .scene .jedi .head #neck .container .right {
+    width: 4vmin;
+    height: 2vmin;
+    background-color: #805058;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-2vmin) translateZ(4vmin);
+}
+
+body .scene .jedi .head #neck .container .top {
+    background-color: #8f5a62;
+    width: 4vmin;
+    height: 4vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(2vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .head #neck .container .bottom {
+    background-color: #8f5a62;
+    width: 4vmin;
+    height: 4vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(2vmin);
+}
+
+body .scene .jedi .head #neck .container .front {
+    background-color: #674046;
+    width: 4vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: translateZ(2vmin);
+}
+
+body .scene .jedi .head #neck .container .back {
+    background-color: #674046;
+    width: 4vmin;
+    height: 2vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(2vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .head #nose {
+    width: 2vmin;
+    height: 2vmin;
+    transform: translate3d(-1.5vmin, -1.5vmin, 0);
+}
+
+body .scene .jedi .head #nose .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .head #nose .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .head #nose .container .left {
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #805058;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-1vmin);
+}
+
+body .scene .jedi .head #nose .container .right {
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #805058;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .head #nose .container .top {
+    background-color: #8f5a62;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .head #nose .container .bottom {
+    background-color: #8f5a62;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(1vmin);
+}
+
+body .scene .jedi .head #nose .container .front {
+    background-color: #674046;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: translateZ(1vmin);
+}
+
+body .scene .jedi .head #nose .container .back {
+    background-color: #674046;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(1vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .head .eyes #eye-left {
+    width: 1.5vmin;
+    height: 1.75vmin;
+    transform: translate3d(-0.3vmin, -3vmin, 4.25vmin);
+}
+
+body .scene .jedi .head .eyes #eye-left .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .head .eyes #eye-left .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .head .eyes #eye-left .container .left {
+    width: 1.75vmin;
+    height: 1.75vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-0.875vmin);
+}
+
+body .scene .jedi .head .eyes #eye-left .container .right {
+    width: 1.75vmin;
+    height: 1.75vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-0.875vmin) translateZ(1.5vmin);
+}
+
+body .scene .jedi .head .eyes #eye-left .container .top {
+    background-color: #3b3544;
+    width: 1.5vmin;
+    height: 1.75vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(0.875vmin) translateZ(1.75vmin);
+}
+
+body .scene .jedi .head .eyes #eye-left .container .bottom {
+    background-color: #3b3544;
+    width: 1.5vmin;
+    height: 1.75vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(0.875vmin);
+}
+
+body .scene .jedi .head .eyes #eye-left .container .front {
+    background-color: #1b181f;
+    width: 1.5vmin;
+    height: 1.75vmin;
+    transform-origin: bottom left;
+    transform: translateZ(0.875vmin);
+}
+
+body .scene .jedi .head .eyes #eye-left .container .back {
+    background-color: #1b181f;
+    width: 1.5vmin;
+    height: 1.75vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(0.875vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .head .eyes #eye-right {
+    width: 1.5vmin;
+    height: 1.75vmin;
+    transform: translate3d(-0.3vmin, -3vmin, -4.25vmin);
+}
+
+body .scene .jedi .head .eyes #eye-right .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .head .eyes #eye-right .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .head .eyes #eye-right .container .left {
+    width: 1.75vmin;
+    height: 1.75vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-0.875vmin);
+}
+
+body .scene .jedi .head .eyes #eye-right .container .right {
+    width: 1.75vmin;
+    height: 1.75vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-0.875vmin) translateZ(1.5vmin);
+}
+
+body .scene .jedi .head .eyes #eye-right .container .top {
+    background-color: #3b3544;
+    width: 1.5vmin;
+    height: 1.75vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(0.875vmin) translateZ(1.75vmin);
+}
+
+body .scene .jedi .head .eyes #eye-right .container .bottom {
+    background-color: #3b3544;
+    width: 1.5vmin;
+    height: 1.75vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(0.875vmin);
+}
+
+body .scene .jedi .head .eyes #eye-right .container .front {
+    background-color: #1b181f;
+    width: 1.5vmin;
+    height: 1.75vmin;
+    transform-origin: bottom left;
+    transform: translateZ(0.875vmin);
+}
+
+body .scene .jedi .head .eyes #eye-right .container .back {
+    background-color: #1b181f;
+    width: 1.5vmin;
+    height: 1.75vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(0.875vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .head .hair {
+    transform: translate3d(-0.5vmin, -7vmin, 0vmin);
+}
+
+body .scene .jedi .head .hair #hair-top {
+    width: 11vmin;
+    height: 2vmin;
+}
+
+body .scene .jedi .head .hair #hair-top .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .head .hair #hair-top .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .head .hair #hair-top .container .left {
+    width: 11vmin;
+    height: 2vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-top .container .right {
+    width: 11vmin;
+    height: 2vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-5.5vmin) translateZ(11vmin);
+}
+
+body .scene .jedi .head .hair #hair-top .container .top {
+    background-color: #3b3544;
+    width: 11vmin;
+    height: 11vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(5.5vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .head .hair #hair-top .container .bottom {
+    background-color: #3b3544;
+    width: 11vmin;
+    height: 11vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-top .container .front {
+    background-color: #1b181f;
+    width: 11vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: translateZ(5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-top .container .back {
+    background-color: #1b181f;
+    width: 11vmin;
+    height: 2vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(5.5vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .head .hair #hair-center {
+    width: 2vmin;
+    height: 3.1vmin;
+    transform: translate3d(4vmin, 3vmin, 0);
+}
+
+body .scene .jedi .head .hair #hair-center .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .head .hair #hair-center .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .head .hair #hair-center .container .left {
+    width: 11vmin;
+    height: 3.1vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-center .container .right {
+    width: 11vmin;
+    height: 3.1vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-5.5vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .head .hair #hair-center .container .top {
+    background-color: #3b3544;
+    width: 2vmin;
+    height: 11vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(5.5vmin) translateZ(3.1vmin);
+}
+
+body .scene .jedi .head .hair #hair-center .container .bottom {
+    background-color: #3b3544;
+    width: 2vmin;
+    height: 11vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-center .container .front {
+    background-color: #1b181f;
+    width: 2vmin;
+    height: 3.1vmin;
+    transform-origin: bottom left;
+    transform: translateZ(5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-center .container .back {
+    background-color: #1b181f;
+    width: 2vmin;
+    height: 3.1vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(5.5vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .head .hair #hair-center-back {
+    width: 2vmin;
+    height: 2.1vmin;
+    transform: translate3d(6vmin, 2vmin, 0);
+}
+
+body .scene .jedi .head .hair #hair-center-back .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .head .hair #hair-center-back .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .head .hair #hair-center-back .container .left {
+    width: 11vmin;
+    height: 2.1vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-center-back .container .right {
+    width: 11vmin;
+    height: 2.1vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-5.5vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .head .hair #hair-center-back .container .top {
+    background-color: #3b3544;
+    width: 2vmin;
+    height: 11vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(5.5vmin) translateZ(2.1vmin);
+}
+
+body .scene .jedi .head .hair #hair-center-back .container .bottom {
+    background-color: #3b3544;
+    width: 2vmin;
+    height: 11vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-center-back .container .front {
+    background-color: #1b181f;
+    width: 2vmin;
+    height: 2.1vmin;
+    transform-origin: bottom left;
+    transform: translateZ(5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-center-back .container .back {
+    background-color: #1b181f;
+    width: 2vmin;
+    height: 2.1vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(5.5vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .head .hair #hair-back {
+    width: 3vmin;
+    height: 5.1vmin;
+    transform: translate3d(8vmin, 5vmin, 0);
+}
+
+body .scene .jedi .head .hair #hair-back .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .head .hair #hair-back .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .head .hair #hair-back .container .left {
+    width: 11vmin;
+    height: 5.1vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-back .container .right {
+    width: 11vmin;
+    height: 5.1vmin;
+    background-color: #2F2A36;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-5.5vmin) translateZ(3vmin);
+}
+
+body .scene .jedi .head .hair #hair-back .container .top {
+    background-color: #3b3544;
+    width: 3vmin;
+    height: 11vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(5.5vmin) translateZ(5.1vmin);
+}
+
+body .scene .jedi .head .hair #hair-back .container .bottom {
+    background-color: #3b3544;
+    width: 3vmin;
+    height: 11vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-back .container .front {
+    background-color: #1b181f;
+    width: 3vmin;
+    height: 5.1vmin;
+    transform-origin: bottom left;
+    transform: translateZ(5.5vmin);
+}
+
+body .scene .jedi .head .hair #hair-back .container .back {
+    background-color: #1b181f;
+    width: 3vmin;
+    height: 5.1vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(5.5vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .body {
+    width: 9vmin;
+    height: 10vmin;
+    transform: translate3d(0.5vmin, -12vmin, 0);
+}
+
+body .scene .jedi .body #body {
+    width: 9vmin;
+    height: 10vmin;
+}
+
+body .scene .jedi .body #body .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .body #body .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .body #body .container .left {
+    width: 10vmin;
+    height: 10vmin;
+    background-color: #E8C6A1;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-5vmin);
+}
+
+body .scene .jedi .body #body .container .right {
+    width: 10vmin;
+    height: 10vmin;
+    background-color: #E8C6A1;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-5vmin) translateZ(9vmin);
+}
+
+body .scene .jedi .body #body .container .top {
+    background-color: #edd2b5;
+    width: 9vmin;
+    height: 10vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(5vmin) translateZ(10vmin);
+}
+
+body .scene .jedi .body #body .container .bottom {
+    background-color: #edd2b5;
+    width: 9vmin;
+    height: 10vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(5vmin);
+}
+
+body .scene .jedi .body #body .container .front {
+    background-color: #e0b280;
+    width: 9vmin;
+    height: 10vmin;
+    transform-origin: bottom left;
+    transform: translateZ(5vmin);
+}
+
+body .scene .jedi .body #body .container .back {
+    background-color: #e0b280;
+    width: 9vmin;
+    height: 10vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(5vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .body #body .container .left {
+    background-image: linear-gradient(90deg, #0000 0% 40%, #2F2A36 40% 60%, #0000 60% 100%), linear-gradient(180deg, #F14749 0% 30%, #0000 60% 100%);
+}
+
+body .scene .jedi .body #body .container .front,
+body .scene .jedi .body #body .container .back,
+body .scene .jedi .body #body .container .right {
+    background-image: linear-gradient(180deg, #F14749 0% 30%, #0000 60% 100%);
+}
+
+body .scene .jedi .body #body .container .top {
+    background-image: radial-gradient(circle, #000a 0% 50%, #0000 100%);
+}
+
+body .scene .jedi .legs .leg-left {
+    width: 2vmin;
+    height: 11vmin;
+    transform: translate3d(4vmin, -5vmin, 2.5vmin) rotateY(10deg);
+}
+
+body .scene .jedi .legs .leg-left #leg-left {
+    width: 2vmin;
+    height: 11vmin;
+}
+
+body .scene .jedi .legs .leg-left #leg-left .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .legs .leg-left #leg-left .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .legs .leg-left #leg-left .container .left {
+    width: 2vmin;
+    height: 11vmin;
+    background-color: #515157;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-1vmin);
+}
+
+body .scene .jedi .legs .leg-left #leg-left .container .right {
+    width: 2vmin;
+    height: 11vmin;
+    background-color: #515157;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .legs .leg-left #leg-left .container .top {
+    background-color: #5d5d64;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(1vmin) translateZ(11vmin);
+}
+
+body .scene .jedi .legs .leg-left #leg-left .container .bottom {
+    background-color: #5d5d64;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(1vmin);
+}
+
+body .scene .jedi .legs .leg-left #leg-left .container .front {
+    background-color: #3d3d42;
+    width: 2vmin;
+    height: 11vmin;
+    transform-origin: bottom left;
+    transform: translateZ(1vmin);
+}
+
+body .scene .jedi .legs .leg-left #leg-left .container .back {
+    background-color: #3d3d42;
+    width: 2vmin;
+    height: 11vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(1vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .legs .leg-left #foot-left {
+    width: 4vmin;
+    height: 2vmin;
+    transform: translate3d(-2vmin, 2vmin, 0vmin);
+}
+
+body .scene .jedi .legs .leg-left #foot-left .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .legs .leg-left #foot-left .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .legs .leg-left #foot-left .container .left {
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #E8E2D4;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-1vmin);
+}
+
+body .scene .jedi .legs .leg-left #foot-left .container .right {
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #E8E2D4;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-1vmin) translateZ(4vmin);
+}
+
+body .scene .jedi .legs .leg-left #foot-left .container .top {
+    background-color: #f1ede5;
+    width: 4vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .legs .leg-left #foot-left .container .bottom {
+    background-color: #f1ede5;
+    width: 4vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(1vmin);
+}
+
+body .scene .jedi .legs .leg-left #foot-left .container .front {
+    background-color: #dad0b9;
+    width: 4vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: translateZ(1vmin);
+}
+
+body .scene .jedi .legs .leg-left #foot-left .container .back {
+    background-color: #dad0b9;
+    width: 4vmin;
+    height: 2vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(1vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .legs .leg-right {
+    width: 2vmin;
+    height: 11vmin;
+    transform: translate3d(4vmin, -5vmin, -2.5vmin) rotateY(-10deg);
+}
+
+body .scene .jedi .legs .leg-right #leg-right {
+    width: 2vmin;
+    height: 11vmin;
+}
+
+body .scene .jedi .legs .leg-right #leg-right .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .legs .leg-right #leg-right .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .legs .leg-right #leg-right .container .left {
+    width: 2vmin;
+    height: 11vmin;
+    background-color: #515157;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-1vmin);
+}
+
+body .scene .jedi .legs .leg-right #leg-right .container .right {
+    width: 2vmin;
+    height: 11vmin;
+    background-color: #515157;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .legs .leg-right #leg-right .container .top {
+    background-color: #5d5d64;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(1vmin) translateZ(11vmin);
+}
+
+body .scene .jedi .legs .leg-right #leg-right .container .bottom {
+    background-color: #5d5d64;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(1vmin);
+}
+
+body .scene .jedi .legs .leg-right #leg-right .container .front {
+    background-color: #3d3d42;
+    width: 2vmin;
+    height: 11vmin;
+    transform-origin: bottom left;
+    transform: translateZ(1vmin);
+}
+
+body .scene .jedi .legs .leg-right #leg-right .container .back {
+    background-color: #3d3d42;
+    width: 2vmin;
+    height: 11vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(1vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .legs .leg-right #foot-right {
+    width: 4vmin;
+    height: 2vmin;
+    transform: translate3d(-2vmin, 2vmin, 0vmin);
+}
+
+body .scene .jedi .legs .leg-right #foot-right .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .legs .leg-right #foot-right .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .legs .leg-right #foot-right .container .left {
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #E8E2D4;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-1vmin);
+}
+
+body .scene .jedi .legs .leg-right #foot-right .container .right {
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #E8E2D4;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-1vmin) translateZ(4vmin);
+}
+
+body .scene .jedi .legs .leg-right #foot-right .container .top {
+    background-color: #f1ede5;
+    width: 4vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .legs .leg-right #foot-right .container .bottom {
+    background-color: #f1ede5;
+    width: 4vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(1vmin);
+}
+
+body .scene .jedi .legs .leg-right #foot-right .container .front {
+    background-color: #dad0b9;
+    width: 4vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: translateZ(1vmin);
+}
+
+body .scene .jedi .legs .leg-right #foot-right .container .back {
+    background-color: #dad0b9;
+    width: 4vmin;
+    height: 2vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(1vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .arms .arm-left {
+    width: 10vmin;
+    height: 10vmin;
+    transform: translate3d(0, -14vmin, 5vmin);
+    animation: rotLeftArm 4s ease-in-out infinite alternate;
+}
+
+@keyframes rotLeftArm {
+
+    0%,
+    20% {
+        transform: translate3d(0, -14vmin, 5vmin) rotateY(5deg) rotateX(5deg) rotateZ(-5deg);
+    }
+
+    100% {
+        transform: translate3d(0, -14vmin, 5vmin) rotateY(10deg) rotateX(10deg) rotateZ(25deg);
+    }
+}
+
+body .scene .jedi .arms .arm-left #arm-left {
+    width: 2vmin;
+    height: 5vmin;
+    transform: translate3d(4vmin, -1vmin, 1vmin);
+}
+
+body .scene .jedi .arms .arm-left #arm-left .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .arms .arm-left #arm-left .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .arms .arm-left #arm-left .container .left {
+    width: 2vmin;
+    height: 5vmin;
+    background-color: #E8C6A1;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-1vmin);
+}
+
+body .scene .jedi .arms .arm-left #arm-left .container .right {
+    width: 2vmin;
+    height: 5vmin;
+    background-color: #E8C6A1;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .arms .arm-left #arm-left .container .top {
+    background-color: #edd2b5;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(1vmin) translateZ(5vmin);
+}
+
+body .scene .jedi .arms .arm-left #arm-left .container .bottom {
+    background-color: #edd2b5;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(1vmin);
+}
+
+body .scene .jedi .arms .arm-left #arm-left .container .front {
+    background-color: #e0b280;
+    width: 2vmin;
+    height: 5vmin;
+    transform-origin: bottom left;
+    transform: translateZ(1vmin);
+}
+
+body .scene .jedi .arms .arm-left #arm-left .container .back {
+    background-color: #e0b280;
+    width: 2vmin;
+    height: 5vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(1vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left {
+    width: 10vmin;
+    height: 10vmin;
+    transform: translate3d(1vmin, 4vmin, 0vmin) rotateZ(0deg);
+    animation: rotLeftElbow 8s ease-in-out infinite alternate;
+}
+
+@keyframes rotLeftElbow {
+
+    0%,
+    20%,
+    100% {
+        transform: translate3d(1vmin, 4vmin, 0vmin) rotateZ(10deg);
+    }
+
+    40% {
+        transform: translate3d(1vmin, 4vmin, 0vmin) rotateZ(50deg);
+    }
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #arm-left-bottom {
+    width: 2vmin;
+    height: 4vmin;
+    transform: translate3d(3vmin, -1vmin, 1vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #arm-left-bottom .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #arm-left-bottom .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #arm-left-bottom .container .left {
+    width: 2vmin;
+    height: 4vmin;
+    background-color: #E8C6A1;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-1vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #arm-left-bottom .container .right {
+    width: 2vmin;
+    height: 4vmin;
+    background-color: #E8C6A1;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #arm-left-bottom .container .top {
+    background-color: #edd2b5;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(1vmin) translateZ(4vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #arm-left-bottom .container .bottom {
+    background-color: #edd2b5;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(1vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #arm-left-bottom .container .front {
+    background-color: #e0b280;
+    width: 2vmin;
+    height: 4vmin;
+    transform-origin: bottom left;
+    transform: translateZ(1vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #arm-left-bottom .container .back {
+    background-color: #e0b280;
+    width: 2vmin;
+    height: 4vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(1vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #hand-left {
+    width: 2vmin;
+    height: 2vmin;
+    transform: translate3d(3vmin, 1vmin, 1vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #hand-left .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #hand-left .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #hand-left .container .left {
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #89565E;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-1vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #hand-left .container .right {
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #89565E;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #hand-left .container .top {
+    background-color: #996069;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #hand-left .container .bottom {
+    background-color: #996069;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(1vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #hand-left .container .front {
+    background-color: #70464d;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: translateZ(1vmin);
+}
+
+body .scene .jedi .arms .arm-left .elbow-left #hand-left .container .back {
+    background-color: #70464d;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(1vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .arms .arm-right {
+    width: 10vmin;
+    height: 10vmin;
+    animation: rotRightArm 6s ease-in-out infinite alternate;
+}
+
+@keyframes rotRightArm {
+
+    0%,
+    20% {
+        transform: translate3d(0, -14vmin, -5vmin) rotateY(-10deg) rotateX(-5deg) rotateZ(15deg);
+    }
+
+    45% {
+        transform: translate3d(0, -14vmin, -5vmin) rotateY(-10deg) rotateX(-15deg) rotateZ(85deg);
+    }
+
+    65% {
+        transform: translate3d(0, -14vmin, -5vmin) rotateY(-10deg) rotateX(15deg) rotateZ(65deg);
+    }
+
+    80% {
+        transform: translate3d(0, -14vmin, -5vmin) rotateY(-10deg) rotateX(-20deg) rotateZ(85deg);
+    }
+
+    100% {
+        transform: translate3d(0, -14vmin, -5vmin) rotateY(-10deg) rotateX(-15deg) rotateZ(85deg);
+    }
+}
+
+body .scene .jedi .arms .arm-right #arm-right {
+    width: 2vmin;
+    height: 9vmin;
+    transform: translate3d(4vmin, 3vmin, -1vmin);
+}
+
+body .scene .jedi .arms .arm-right #arm-right .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .arms .arm-right #arm-right .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .arms .arm-right #arm-right .container .left {
+    width: 2vmin;
+    height: 9vmin;
+    background-color: #E8C6A1;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-1vmin);
+}
+
+body .scene .jedi .arms .arm-right #arm-right .container .right {
+    width: 2vmin;
+    height: 9vmin;
+    background-color: #E8C6A1;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .arms .arm-right #arm-right .container .top {
+    background-color: #edd2b5;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(1vmin) translateZ(9vmin);
+}
+
+body .scene .jedi .arms .arm-right #arm-right .container .bottom {
+    background-color: #edd2b5;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(1vmin);
+}
+
+body .scene .jedi .arms .arm-right #arm-right .container .front {
+    background-color: #e0b280;
+    width: 2vmin;
+    height: 9vmin;
+    transform-origin: bottom left;
+    transform: translateZ(1vmin);
+}
+
+body .scene .jedi .arms .arm-right #arm-right .container .back {
+    background-color: #e0b280;
+    width: 2vmin;
+    height: 9vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(1vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .arms .arm-right #hand-right {
+    width: 2vmin;
+    height: 2vmin;
+    transform: translate3d(4vmin, 5vmin, -1vmin);
+}
+
+body .scene .jedi .arms .arm-right #hand-right .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .arms .arm-right #hand-right .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .arms .arm-right #hand-right .container .left {
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #89565E;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-1vmin);
+}
+
+body .scene .jedi .arms .arm-right #hand-right .container .right {
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #89565E;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .arms .arm-right #hand-right .container .top {
+    background-color: #996069;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(1vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .arms .arm-right #hand-right .container .bottom {
+    background-color: #996069;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(1vmin);
+}
+
+body .scene .jedi .arms .arm-right #hand-right .container .front {
+    background-color: #70464d;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: bottom left;
+    transform: translateZ(1vmin);
+}
+
+body .scene .jedi .arms .arm-right #hand-right .container .back {
+    background-color: #70464d;
+    width: 2vmin;
+    height: 2vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(1vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber {
+    width: 20vmin;
+    height: 1.5vmin;
+    transform-origin: bottom right;
+    transform: translate3d(-17vmin, 4.75vmin, -1vmin) scale3d(0, 1, 1);
+    animation: extendLightsaber 6s ease-in infinite alternate;
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .left {
+    width: 1.5vmin;
+    height: 1.5vmin;
+    background-color: #9EF4F5;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-0.75vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .right {
+    width: 1.5vmin;
+    height: 1.5vmin;
+    background-color: #9EF4F5;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-0.75vmin) translateZ(20vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .top {
+    background-color: #b5f7f7;
+    width: 20vmin;
+    height: 1.5vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(0.75vmin) translateZ(1.5vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .bottom {
+    background-color: #b5f7f7;
+    width: 20vmin;
+    height: 1.5vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(0.75vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .front {
+    background-color: #79f0f1;
+    width: 20vmin;
+    height: 1.5vmin;
+    transform-origin: bottom left;
+    transform: translateZ(0.75vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .back {
+    background-color: #79f0f1;
+    width: 20vmin;
+    height: 1.5vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(0.75vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+@keyframes extendLightsaber {
+
+    0%,
+    35% {
+        transform: translate3d(-17vmin, 4.75vmin, -1vmin) scale3d(0, 1, 1);
+    }
+
+    40%,
+    100% {
+        transform: translate3d(-17vmin, 4.75vmin, -1vmin) scale3d(1, 1, 1);
+    }
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .front,
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .back,
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .top,
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .bottom,
+body .scene .jedi .arms .arm-right .light-saber #light-saber .container .left {
+    animation: glowLightsaber 6s ease-in infinite alternate;
+}
+
+@keyframes glowLightsaber {
+
+    0%,
+    35% {
+        box-shadow: 0 0 1.25vmin 0 #0000;
+    }
+
+    40%,
+    100% {
+        box-shadow: 0 0 1.25vmin 0 #179BCF;
+    }
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-bolster {
+    width: 1vmin;
+    height: 1.5vmin;
+    transform: translate3d(3vmin, 4.75vmin, -1vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-bolster .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-bolster .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-bolster .container .left {
+    width: 1.5vmin;
+    height: 1.5vmin;
+    background-color: black;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-0.75vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-bolster .container .right {
+    width: 1.5vmin;
+    height: 1.5vmin;
+    background-color: black;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-0.75vmin) translateZ(1vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-bolster .container .top {
+    background-color: #0d0d0d;
+    width: 1vmin;
+    height: 1.5vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(0.75vmin) translateZ(1.5vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-bolster .container .bottom {
+    background-color: #0d0d0d;
+    width: 1vmin;
+    height: 1.5vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(0.75vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-bolster .container .front {
+    background-color: black;
+    width: 1vmin;
+    height: 1.5vmin;
+    transform-origin: bottom left;
+    transform: translateZ(0.75vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-bolster .container .back {
+    background-color: black;
+    width: 1vmin;
+    height: 1.5vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(0.75vmin) rotateX(180deg) rotateZ(180deg);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-handle {
+    width: 2vmin;
+    height: 1.5vmin;
+    transform: translate3d(6vmin, 4.75vmin, -1vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-handle .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-handle .container * {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-handle .container .left {
+    width: 1.5vmin;
+    height: 1.5vmin;
+    background-color: white;
+    transform-origin: left top;
+    transform: rotateY(-90deg) translateX(-0.75vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-handle .container .right {
+    width: 1.5vmin;
+    height: 1.5vmin;
+    background-color: white;
+    transform-origin: left top;
+    transform: rotateY(90deg) translateX(-0.75vmin) translateZ(2vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-handle .container .top {
+    background-color: white;
+    width: 2vmin;
+    height: 1.5vmin;
+    transform-origin: bottom left;
+    transform: rotateX(90deg) translateY(0.75vmin) translateZ(1.5vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-handle .container .bottom {
+    background-color: white;
+    width: 2vmin;
+    height: 1.5vmin;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateY(0.75vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-handle .container .front {
+    background-color: #ebebeb;
+    width: 2vmin;
+    height: 1.5vmin;
+    transform-origin: bottom left;
+    transform: translateZ(0.75vmin);
+}
+
+body .scene .jedi .arms .arm-right .light-saber #light-saber-handle .container .back {
+    background-color: #ebebeb;
+    width: 2vmin;
+    height: 1.5vmin;
+    transform-origin: center;
+    transform: rotateY(180deg) translateZ(0.75vmin) rotateX(180deg) rotateZ(180deg);
+}
